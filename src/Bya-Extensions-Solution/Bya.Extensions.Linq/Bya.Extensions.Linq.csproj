@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Copyright>MIT License</Copyright>
+    <Authors>Alca259</Authors>
+    <Description>Extensions for System.Linq namespace</Description>
+    <PackageTags>linq,extensions</PackageTags>
+    <RepositoryUrl>https://github.com/alca259/Bya-Extensions</RepositoryUrl>
+    <RepositoryType>Git</RepositoryType>
+  </PropertyGroup>
+
+</Project>
