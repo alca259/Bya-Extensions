@@ -332,6 +332,23 @@ namespace System
         {
             return DateTime.IsLeapYear(date.Year) ? 366 : 365;
         }
+
+        /// <summary>
+        /// Devuelve la edad actual
+        /// </summary>
+        /// <param name="dateOfBirth"></param>
+        /// <returns></returns>
+        public static int Age(this DateTime dateOfBirth)
+        {
+            if (DateTime.Today.Month < dateOfBirth.Month ||
+            DateTime.Today.Month == dateOfBirth.Month &&
+             DateTime.Today.Day < dateOfBirth.Day)
+            {
+                return DateTime.Today.Year - dateOfBirth.Year - 1;
+            }
+            else
+                return DateTime.Today.Year - dateOfBirth.Year;
+        }
         #endregion
     }
 }

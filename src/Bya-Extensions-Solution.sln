@@ -13,7 +13,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{DA82AF15
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LibraryTests", "Tests\LibraryTests\LibraryTests.csproj", "{0DAF2E7F-1D35-41AF-B5C7-B8F8FC374E20}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bya.BackgroundTasks", "Bya.BackgroundTasks\Bya.BackgroundTasks.csproj", "{23A93607-520F-45C1-BDFA-82F2E844D3DC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bya.BackgroundTasks", "Bya.BackgroundTasks\Bya.BackgroundTasks.csproj", "{23A93607-520F-45C1-BDFA-82F2E844D3DC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bya.ExcelExport", "Bya.ExcelExport\Bya.ExcelExport.csproj", "{0D76EFD6-CE7C-48D0-88CA-E65FB32E2527}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -41,6 +43,10 @@ Global
 		{23A93607-520F-45C1-BDFA-82F2E844D3DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{23A93607-520F-45C1-BDFA-82F2E844D3DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{23A93607-520F-45C1-BDFA-82F2E844D3DC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0D76EFD6-CE7C-48D0-88CA-E65FB32E2527}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0D76EFD6-CE7C-48D0-88CA-E65FB32E2527}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0D76EFD6-CE7C-48D0-88CA-E65FB32E2527}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0D76EFD6-CE7C-48D0-88CA-E65FB32E2527}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

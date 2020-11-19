@@ -418,5 +418,51 @@ namespace LibraryTests
             Assert.IsTrue(range1.Collision(testRange7));
             Assert.IsFalse(range1.Collision(testRange8));
         }
+
+        [TestMethod]
+        public void TestRangeCollisionWithHoursNoInclusive()
+        {
+            var range1 = new DateRange(new DateTime(1900, 1, 1, 12, 0, 0), new DateTime(1900, 1, 1, 16, 0, 0))
+            {
+                UseHours = true,
+                InclusiveStart = false,
+                InclusiveEnd = false
+            };
+
+            var testRange1 = new DateRange(new DateTime(1900, 1, 1, 11, 0, 0), new DateTime(1900, 1, 1, 17, 0, 0)); // Empieza fuera, termina fuera
+            var testRange3 = new DateRange(new DateTime(1900, 1, 1, 12, 30, 0), new DateTime(1900, 1, 1, 15, 30, 0)); // Dentro
+            var testRange6 = new DateRange(new DateTime(1900, 1, 1, 12, 30, 0), new DateTime(1900, 1, 1, 16, 30, 0)); // Empieza dentro, termina fuera
+            var testRange7 = new DateRange(new DateTime(1900, 1, 1, 11, 30, 0), new DateTime(1900, 1, 1, 15, 30, 0)); // Empieza fuera, termina dentro
+            var testRange8 = new DateRange(new DateTime(1900, 1, 1, 16, 30, 0), new DateTime(1900, 1, 1, 17, 30, 0)); // Totalmente fuera, sin colision
+
+            Assert.IsTrue(range1.Collision(testRange1));
+            Assert.IsTrue(range1.Collision(testRange3));
+            Assert.IsTrue(range1.Collision(testRange6));
+            Assert.IsTrue(range1.Collision(testRange7));
+            Assert.IsFalse(range1.Collision(testRange8));
+
+            var testRange4 = new DateRange(new DateTime(1900, 1, 1, 11, 0, 0), new DateTime(1900, 1, 1, 12, 0, 0)); // Empieza fuera, extremo inicio
+            var testRange5 = new DateRange(new DateTime(1900, 1, 1, 16, 0, 0), new DateTime(1900, 1, 1, 16, 30, 0)); // Extremo final, termina fuera
+
+            Assert.IsFalse(range1.Collision(testRange4));
+            Assert.IsFalse(range1.Collision(testRange5));
+
+            var testRange2 = new DateRange(new DateTime(1900, 1, 1, 12, 0, 0), new DateTime(1900, 1, 1, 16, 0, 0)); // Ambos Extremos
+            Assert.IsFalse(range1.Inside(testRange2));
+            Assert.IsFalse(range1.StartInside(testRange2));
+            Assert.IsFalse(range1.EndsInside(testRange2));
+            Assert.IsTrue(range1.Overlap(testRange2));
+            Assert.IsTrue(range1.Collision(testRange2));
+
+            var testRange9 = new DateRange(new DateTime(1900, 1, 1, 12, 0, 0), new DateTime(1900, 1, 1, 15, 30, 0)); // Extremo inicio, termina dentro
+            var testRange10 = new DateRange(new DateTime(1900, 1, 1, 12, 0, 0), new DateTime(1900, 1, 1, 16, 30, 0)); // Extremo inicio, termina fuera
+
+            Assert.IsTrue(range1.Collision(testRange9));
+            Assert.IsTrue(range1.Collision(testRange10));
+
+            var testRange11 = new DateRange(new DateTime(1900, 1, 1, 8, 0, 0), new DateTime(1900, 1, 1, 16, 0, 0)); // Empieza fuera, termina en extremo final
+
+            Assert.IsTrue(range1.Collision(testRange11));
+        }
     }
 }

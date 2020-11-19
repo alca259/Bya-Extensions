@@ -83,7 +83,12 @@ namespace System
         /// <returns></returns>
         public bool Collision(DateRange checkRange)
         {
-            return Inside(checkRange) || StartInside(checkRange) || EndsInside(checkRange) || Overlap(checkRange);
+            return Inside(checkRange)
+                || StartInside(checkRange)
+                || EndsInside(checkRange)
+                || Overlap(checkRange)
+                || StartInsideEndsOutside(checkRange)
+                || StartOutsideEndsInside(checkRange);
         }
 
         /// <summary>
@@ -136,6 +141,12 @@ namespace System
         /// <returns></returns>
         public bool StartInsideEndsOutside(DateRange checkRange)
         {
+            if (!InclusiveStart)
+            {
+                var useCheckDate = UseHours ? checkRange.Start : checkRange.Start.Date;
+                if (useCheckDate == UseStart) return true;
+            }
+
             return Inside(checkRange.Start) && !Inside(checkRange.End);
         }
 
@@ -146,6 +157,12 @@ namespace System
         /// <returns></returns>
         public bool StartOutsideEndsInside(DateRange checkRange)
         {
+            if (!InclusiveEnd)
+            {
+                var useCheckDate = UseHours ? checkRange.End : checkRange.End.Date;
+                if (useCheckDate == UseEnd) return true;
+            }
+
             return !Inside(checkRange.Start) && Inside(checkRange.End);
         }
 
@@ -158,18 +175,31 @@ namespace System
         {
             // Si cualquiera de las fechas a comprobar está dentro de rango, ya no lo está solapando de forma total
             if (Inside(checkRange.Start) || Inside(checkRange.End)) return false;
+            
+            if (!InclusiveStart && !InclusiveEnd && Equals(checkRange)) return true;
 
             var useCheckDateStart = UseHours ? checkRange.Start : checkRange.Start.Date;
             var useCheckDateEnd = UseHours ? checkRange.End : checkRange.End.Date;
 
             var condStart = InclusiveStart ? useCheckDateStart <= UseStart : useCheckDateStart < UseStart;
             var condEnd = InclusiveEnd ? useCheckDateEnd >= UseEnd : useCheckDateEnd > UseEnd;
+
             return condStart && condEnd;
         }
 
         public override string ToString()
         {
             return $"{Start:yyyy-MM-dd HH:mm:ss} - {End:yyyy-MM-dd HH:mm:ss} ({base.ToString()})";
+        }
+
+        public override bool Equals(object obj)
+        {
+            if (!(obj is DateRange checkRange)) return false;
+
+            var useCheckDateStart = UseHours ? checkRange.Start : checkRange.Start.Date;
+            var useCheckDateEnd = UseHours ? checkRange.End : checkRange.End.Date;
+
+            return useCheckDateStart == UseStart && useCheckDateEnd == UseEnd;
         }
     }
 }
