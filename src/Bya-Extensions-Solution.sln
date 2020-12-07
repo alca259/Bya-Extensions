@@ -15,7 +15,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LibraryTests", "Tests\Libra
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bya.BackgroundTasks", "Bya.BackgroundTasks\Bya.BackgroundTasks.csproj", "{23A93607-520F-45C1-BDFA-82F2E844D3DC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bya.ExcelExport", "Bya.ExcelExport\Bya.ExcelExport.csproj", "{0D76EFD6-CE7C-48D0-88CA-E65FB32E2527}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bya.ExcelExport", "Bya.ExcelExport\Bya.ExcelExport.csproj", "{0D76EFD6-CE7C-48D0-88CA-E65FB32E2527}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bya.Globalization", "Bya.Globalization\Bya.Globalization.csproj", "{8992EFC6-2383-4C79-8C71-8A0E90527B40}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bya.Reflection", "Bya.Reflection\Bya.Reflection.csproj", "{43FA2D46-208C-4A69-8836-7BC040539DD2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bya.System", "Bya.System\Bya.System.csproj", "{4603CA73-3C4E-487E-9A4E-C67298A02E1A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -47,6 +53,18 @@ Global
 		{0D76EFD6-CE7C-48D0-88CA-E65FB32E2527}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0D76EFD6-CE7C-48D0-88CA-E65FB32E2527}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0D76EFD6-CE7C-48D0-88CA-E65FB32E2527}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8992EFC6-2383-4C79-8C71-8A0E90527B40}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8992EFC6-2383-4C79-8C71-8A0E90527B40}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8992EFC6-2383-4C79-8C71-8A0E90527B40}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8992EFC6-2383-4C79-8C71-8A0E90527B40}.Release|Any CPU.Build.0 = Release|Any CPU
+		{43FA2D46-208C-4A69-8836-7BC040539DD2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{43FA2D46-208C-4A69-8836-7BC040539DD2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{43FA2D46-208C-4A69-8836-7BC040539DD2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{43FA2D46-208C-4A69-8836-7BC040539DD2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4603CA73-3C4E-487E-9A4E-C67298A02E1A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4603CA73-3C4E-487E-9A4E-C67298A02E1A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4603CA73-3C4E-487E-9A4E-C67298A02E1A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4603CA73-3C4E-487E-9A4E-C67298A02E1A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
